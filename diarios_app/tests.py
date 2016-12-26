@@ -13,4 +13,6 @@ class SimpleTest(TestCase):
         """
         Tests that 1 + 1 always equals 2.
         """
-        self.assertEqual(1 + 1, 2)
+
+	a = 0
+        self.assertEqual(8 - 8, a)
