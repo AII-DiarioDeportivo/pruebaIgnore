@@ -6,3 +6,4 @@ Django==1.4.7
 pattern
 Whoosh
 beautifulsoup4
+APScheduler==3.0.0

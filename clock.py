@@ -1,10 +1,14 @@
 # encoding: utf-8
+from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'DiariosDeportivos.settings'
 import feedparser
 from django.db.transaction import commit_on_success
 from diarios_app.models import Noticia
+
 import time
+
+sched = BlockingScheduler()
 
 #Clase de pruebas
 @commit_on_success
@@ -29,5 +33,8 @@ def read_test():
         noticia.save()
 
 
-if __name__ == "__main__":
+@sched.scheduled_job('interval', minutes=2)
+def timed_job():
     read_test()
+
+sched.start()
