@@ -7,6 +7,9 @@ from diarios_app.models import Noticia
 import time
 
 #Clase de pruebas
+import kronos
+
+@kronos.register('*/5 * * * * ')
 @commit_on_success
 def read_test():
     print "Populando de Marca..."
